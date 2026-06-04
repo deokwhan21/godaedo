@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { text: '필기도구 ✏️', checked: false },
     { text: '편안한 운동화/신발 👟', checked: false },
     { text: '주민등록증/신분증 (배 승선 필수! 🪪)', checked: false },
-    { text: '세면도구 및 화장품 🧴', checked: false },
+    { text: '⚠️ 개인 세면도구(치약, 칫솔 등) 및 수건 필수 지참! 🧴🧼', checked: false },
     { text: '상비약 및 개인 복용 약 💊', checked: false },
     { text: '스마트폰 충전기 & 보조배터리 🔋', checked: false },
     { text: '가벼운 겉옷/바람막이 (바닷바람 대비 🧥)', checked: false }
@@ -24,14 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let state = {
     theme: localStorage.getItem('theme') || 'light',
     checkedParticipants: JSON.parse(localStorage.getItem('checkedParticipants')) || [],
-    todos: JSON.parse(localStorage.getItem('todos')) || DEFAULT_TODOS,
-    budget: JSON.parse(localStorage.getItem('budget')) || {
-      people: 11,
-      pension: 350000,
-      ferry: 16000,
-      meal: 30000,
-      misc: 100000
-    }
+    todos: JSON.parse(localStorage.getItem('todos_v2')) || DEFAULT_TODOS
   };
 
   // --- Theme Toggle Setup ---
@@ -263,7 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function saveTodos() {
-    localStorage.setItem('todos', JSON.stringify(state.todos));
+    localStorage.setItem('todos_v2', JSON.stringify(state.todos));
   }
 
   addTodoBtn.addEventListener('click', () => {
@@ -284,52 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   renderTodos();
 
-  // --- Simple Travel Budget Calculator ---
-  const numPeopleInput = document.getElementById('num-people');
-  const pensionCostInput = document.getElementById('pension-cost');
-  const ferryCostInput = document.getElementById('ferry-cost');
-  const mealCostInput = document.getElementById('meal-cost');
-  const miscCostInput = document.getElementById('misc-cost');
-
-  const totalFerryEl = document.getElementById('total-ferry');
-  const totalMealEl = document.getElementById('total-meal');
-  const grandTotalEl = document.getElementById('grand-total');
-
-  function loadBudgetInputs() {
-    numPeopleInput.value = state.budget.people;
-    pensionCostInput.value = state.budget.pension;
-    ferryCostInput.value = state.budget.ferry;
-    mealCostInput.value = state.budget.meal;
-    miscCostInput.value = state.budget.misc;
-  }
-
-  function calculateBudget() {
-    const people = parseInt(numPeopleInput.value) || 0;
-    const pension = parseInt(pensionCostInput.value) || 0;
-    const ferryUnit = parseInt(ferryCostInput.value) || 0;
-    const mealUnit = parseInt(mealCostInput.value) || 0;
-    const misc = parseInt(miscCostInput.value) || 0;
-
-    const totalFerry = people * ferryUnit;
-    const totalMeal = people * mealUnit;
-    const grandTotal = pension + totalFerry + totalMeal + misc;
-
-    totalFerryEl.textContent = totalFerry.toLocaleString('ko-KR') + '원';
-    totalMealEl.textContent = totalMeal.toLocaleString('ko-KR') + '원';
-    grandTotalEl.textContent = grandTotal.toLocaleString('ko-KR') + '원';
-
-    // Update state & store
-    state.budget = { people, pension, ferry: ferryUnit, meal: mealUnit, misc };
-    localStorage.setItem('budget', JSON.stringify(state.budget));
-  }
-
-  const budgetInputs = [numPeopleInput, pensionCostInput, ferryCostInput, mealCostInput, miscCostInput];
-  budgetInputs.forEach(input => {
-    input.addEventListener('input', calculateBudget);
-  });
-
-  loadBudgetInputs();
-  calculateBudget();
+  // Budget calculator removed
 
   // --- Interactive Map Linked Event ---
   const mapPins = document.querySelectorAll('.map-pin');
