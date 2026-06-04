@@ -306,31 +306,39 @@ document.addEventListener('DOMContentLoaded', () => {
         // Scroll to the timeline item smoothly
         timelineItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-        // Highlight timeline item briefly
-        timelineItem.classList.add('highlighted');
+        // Highlight parent timeline item briefly
+        const mainTimelineItem = timelineItem.closest('.timeline-item');
+        if (mainTimelineItem) {
+          mainTimelineItem.classList.add('highlighted');
+          setTimeout(() => {
+            mainTimelineItem.classList.remove('highlighted');
+          }, 2000);
+        }
         
-        // Expand item if it is expandable and not already open
-        const contentBox = timelineItem.querySelector('.timeline-content');
-        if (contentBox && contentBox.classList.contains('expandable')) {
+        // Expand item if it is or is inside an expandable box
+        const contentBox = timelineItem.closest('.timeline-content.expandable') || timelineItem.querySelector('.timeline-content.expandable');
+        if (contentBox) {
           contentBox.classList.add('open');
         }
-
-        setTimeout(() => {
-          timelineItem.classList.remove('highlighted');
-        }, 2000);
       }
     });
 
     // Hover effect mapping
     pin.addEventListener('mouseenter', () => {
       if (timelineItem) {
-        timelineItem.classList.add('highlighted');
+        const mainTimelineItem = timelineItem.closest('.timeline-item');
+        if (mainTimelineItem) {
+          mainTimelineItem.classList.add('highlighted');
+        }
       }
     });
 
     pin.addEventListener('mouseleave', () => {
       if (timelineItem) {
-        timelineItem.classList.remove('highlighted');
+        const mainTimelineItem = timelineItem.closest('.timeline-item');
+        if (mainTimelineItem) {
+          mainTimelineItem.classList.remove('highlighted');
+        }
       }
     });
   });
