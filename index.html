@@ -127,10 +127,26 @@
         
         <!-- Interactive SVGs Map Card -->
         <section class="dashboard-card map-card">
-          <div class="card-header">
-            <h2>🗺 성지순례 경로도 (원산도 & 고대도)</h2>
-            <p>지도의 주요 핀을 누르면 해당 위치의 일정을 확인할 수 있습니다.</p>
+          <div class="card-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
+            <div>
+              <h2>🗺 성지순례 안내 지도</h2>
+              <p>원하는 탭을 선택하고 지도를 클릭하면 크게 확대하여 볼 수 있습니다.</p>
+            </div>
+            <div class="map-tabs">
+              <button class="map-tab-btn active" data-map-tab="interactive">실시간 경로도</button>
+              <button class="map-tab-btn" data-map-tab="island">고대도 전체도</button>
+              <button class="map-tab-btn" data-map-tab="village">마을 상세도</button>
+            </div>
           </div>
+          
+          <div class="map-image-container" id="map-island-view" style="display: none; border-radius: 12px; overflow: hidden; background: var(--bg-app); border: var(--border-card); margin-bottom: 12px;">
+            <img src="map_island.png" style="width: 100%; display: block; height: auto;" alt="개신교 최초의 선교유적지 고대도 지도">
+          </div>
+
+          <div class="map-image-container" id="map-village-view" style="display: none; border-radius: 12px; overflow: hidden; background: var(--bg-app); border: var(--border-card); margin-bottom: 12px;">
+            <img src="map_village.png" style="width: 100%; display: block; height: auto;" alt="고대도 선착장 및 마을 상세 안내도">
+          </div>
+
           <div class="map-container">
             <svg id="interactive-map" viewBox="0 0 600 380" class="svg-map">
               <defs>
@@ -428,6 +444,13 @@
     </footer>
 
   </main>
+
+  <!-- Lightbox Modal for maps -->
+  <div id="image-modal" class="lightbox-modal">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+    <div id="lightbox-caption"></div>
+  </div>
 
   <script src="app.js?v=2.0.3"></script>
 </body>

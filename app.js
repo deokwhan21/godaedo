@@ -343,4 +343,58 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // --- Map Tabs Toggling ---
+  const mapTabBtns = document.querySelectorAll('.map-tab-btn');
+  const interactiveMapContainer = document.querySelector('.map-container');
+  const mapIslandView = document.getElementById('map-island-view');
+  const mapVillageView = document.getElementById('map-village-view');
+
+  mapTabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      mapTabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const tab = btn.getAttribute('data-map-tab');
+      if (tab === 'interactive') {
+        interactiveMapContainer.style.display = 'block';
+        mapIslandView.style.display = 'none';
+        mapVillageView.style.display = 'none';
+      } else if (tab === 'island') {
+        interactiveMapContainer.style.display = 'none';
+        mapIslandView.style.display = 'block';
+        mapVillageView.style.display = 'none';
+      } else if (tab === 'village') {
+        interactiveMapContainer.style.display = 'none';
+        mapIslandView.style.display = 'none';
+        mapVillageView.style.display = 'block';
+      }
+    });
+  });
+
+  // --- Lightbox Modal for maps ---
+  const lightboxModal = document.getElementById('image-modal');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  const lightboxClose = document.querySelector('.lightbox-close');
+
+  const clickableImages = document.querySelectorAll('.map-image-container img');
+  clickableImages.forEach(img => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => {
+      lightboxModal.style.display = 'block';
+      lightboxImg.src = img.src;
+      lightboxCaption.textContent = img.alt + " (스마트폰에서는 두 손가락으로 확대해 볼 수 있습니다)";
+    });
+  });
+
+  lightboxClose.addEventListener('click', () => {
+    lightboxModal.style.display = 'none';
+  });
+
+  lightboxModal.addEventListener('click', (e) => {
+    if (e.target === lightboxModal || e.target === lightboxImg) {
+      lightboxModal.style.display = 'none';
+    }
+  });
+
 });
