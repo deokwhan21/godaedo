@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>한샘교회 국내기독교성지탐방 플래너</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Floating Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <span class="church-badge">한샘교회</span>
+        <span class="nav-title">성지탐방 플래너</span>
+      </div>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="icon-btn" aria-label="다크 모드 토글">
+          <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20">
+            <path fill="currentColor" d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41zm-12.37 12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41z"/>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" style="display: none;">
+            <path fill="currentColor" d="M12.3 22h-.1c-5.5 0-10-4.5-10-10 0-4.8 3.5-8.9 8.2-9.7.5-.1 1 .3.9.8-.1.4-.2.8-.2 1.3 0 4.4 3.6 8 8 8 .4 0 .9-.1 1.3-.2.5-.1 1 .4.8.9-1.1 4.4-5.1 7.9-9.8 7.9zm-6.2-10c0 3.3 2.7 6 6 6 2.4 0 4.5-1.4 5.5-3.5-.7.2-1.5.3-2.2.3-5.5 0-10-4.5-10-10 0-.8.1-1.5.3-2.2-2.1 1-3.6 3.1-3.6 5.4z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- App Wrapper -->
+  <main class="app-wrapper">
+
+    <!-- Hero Card with Countdown -->
+    <header class="hero-card">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">한샘교회 국내기독교성지탐방</h1>
+        <p class="hero-subtitle">은혜의 발자취를 따라 걷는 원산도 & 고대도 여행</p>
+        
+        <!-- Countdown Container -->
+        <div class="countdown-container" id="countdown-box">
+          <div class="countdown-label">출발까지 남은 시간</div>
+          <div class="countdown-timer">
+            <div class="timer-segment">
+              <span id="days">00</span>
+              <span class="timer-unit">일</span>
+            </div>
+            <div class="timer-segment">
+              <span id="hours">00</span>
+              <span class="timer-unit">시간</span>
+            </div>
+            <div class="timer-segment">
+              <span id="minutes">00</span>
+              <span class="timer-unit">분</span>
+            </div>
+            <div class="timer-segment">
+              <span id="seconds">00</span>
+              <span class="timer-unit">초</span>
+            </div>
+          </div>
+          <div class="countdown-status" id="countdown-status">성지 탐방을 준비하며 기도로 함께해요.</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Essential Info Badges -->
+    <section class="quick-info-grid">
+      <div class="info-card">
+        <div class="info-icon-wrapper">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+        </div>
+        <div class="info-details">
+          <h3>탐방 일시</h3>
+          <p>2026.06.05(금) - 06.06(토)</p>
+          <span class="info-sub text-teal">1박 2일 일정</span>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon-wrapper">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+        </div>
+        <div class="info-details">
+          <h3>주요 장소</h3>
+          <p>충남 보령시 원산도 & 고대도</p>
+          <span class="info-sub">태안해안국립공원 구역</span>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon-wrapper">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+        </div>
+        <div class="info-details">
+          <h3>공식 숙소</h3>
+          <p class="hotel-title">햇빛바다관광펜션</p>
+          <div class="link-group">
+            <a href="http://www.sunshinecv.com" target="_blank" class="text-link">홈페이지 바로가기</a>
+            <span class="divider">|</span>
+            <button class="copy-btn" data-clipboard="충남 보령시 오천면 원산도7길 103">주소 복사</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content Area Grid -->
+    <div class="main-grid">
+
+      <!-- Left Column: Map & Timeline (Itinerary) -->
+      <div class="content-left">
+        
+        <!-- Interactive SVGs Map Card -->
+        <section class="dashboard-card map-card">
+          <div class="card-header">
+            <h2>🗺 성지순례 경로도 (원산도 & 고대도)</h2>
+            <p>지도의 주요 핀을 누르면 해당 위치의 일정을 확인할 수 있습니다.</p>
+          </div>
+          <div class="map-container">
+            <svg id="interactive-map" viewBox="0 0 600 380" class="svg-map">
+              <defs>
+                <linearGradient id="ocean-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="var(--bg-ocean-start)" />
+                  <stop offset="100%" stop-color="var(--bg-ocean-end)" />
+                </linearGradient>
+                <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+                  <feDropShadow dx="2" dy="4" stdDeviation="4" flood-opacity="0.15"/>
+                </filter>
+              </defs>
+
+              <!-- Water Background -->
+              <rect width="100%" height="100%" fill="url(#ocean-grad)" rx="16"/>
+              
+              <!-- Wonsando Island Shape -->
+              <path class="island-path" d="M 50 180 Q 80 140 130 160 T 220 180 T 320 220 T 280 320 T 150 280 T 80 260 Z" fill="var(--color-island)" stroke="var(--color-island-border)" stroke-width="2" filter="url(#shadow)"/>
+              
+              <!-- Godaedo Island Shape -->
+              <path class="island-path" d="M 380 70 Q 420 40 470 60 T 520 100 T 480 160 T 400 130 T 360 90 Z" fill="var(--color-island-godaedo)" stroke="var(--color-island-border)" stroke-width="2" filter="url(#shadow)"/>
+
+              <!-- Ferry Sea Route (Chojeon Port -> Godaedo) -->
+              <path class="ship-route" d="M 280 220 Q 340 180 380 125" fill="none" stroke="var(--color-accent-route)" stroke-width="3" stroke-dasharray="6,6"/>
+              
+              <!-- Ferry Icon along path -->
+              <g transform="translate(325, 175) rotate(-35)">
+                <path d="M-6,-3 L6,-3 L8,0 L6,3 L-6,3 Z" fill="var(--color-accent-route)"/>
+                <circle cx="-1" cy="0" r="1.5" fill="white"/>
+                <path d="M-2,-2 L-2,-5 L1,-5 L1,-2" stroke="var(--color-accent-route)" stroke-width="1" fill="none"/>
+              </g>
+
+              <!-- Connection Dots & Labels -->
+              <!-- 1. 원산도 숙소 (햇빛바다관광펜션) -->
+              <g class="map-pin" id="pin-pension" data-target="item-pension">
+                <circle cx="120" cy="220" r="14" class="pin-pulse"/>
+                <circle cx="120" cy="220" r="7" class="pin-core"/>
+                <text x="120" y="245" class="pin-label">🏠 햇빛바다펜션</text>
+              </g>
+
+              <!-- 2. 원산도 초전항 -->
+              <g class="map-pin" id="pin-chojeon" data-target="item-chojeon">
+                <circle cx="280" cy="220" r="14" class="pin-pulse"/>
+                <circle cx="280" cy="220" r="7" class="pin-core"/>
+                <text x="280" y="245" class="pin-label">⚓ 초전항 (출항)</text>
+              </g>
+
+              <!-- 3. 고대도 동일교회 & 선교센터 -->
+              <g class="map-pin" id="pin-church" data-target="item-church">
+                <circle cx="450" cy="95" r="14" class="pin-pulse"/>
+                <circle cx="450" cy="95" r="7" class="pin-core"/>
+                <text x="450" y="75" class="pin-label">⛪ 동일교회 & 선교센터</text>
+              </g>
+
+              <!-- 4. 칼 귀츨라프 기념공원 -->
+              <g class="map-pin" id="pin-park" data-target="item-park">
+                <circle cx="400" cy="115" r="14" class="pin-pulse"/>
+                <circle cx="400" cy="115" r="7" class="pin-core"/>
+                <text x="360" y="140" class="pin-label">🌳 귀츨라프 기념공원</text>
+              </g>
+
+              <!-- 5. 이용연 장로댁 농원 -->
+              <g class="map-pin" id="pin-farm" data-target="item-farm">
+                <circle cx="200" cy="250" r="14" class="pin-pulse"/>
+                <circle cx="200" cy="250" r="7" class="pin-core"/>
+                <text x="200" y="275" class="pin-label">🍎 이용연 장로 농원</text>
+              </g>
+
+              <!-- Map Legend -->
+              <rect x="15" y="315" width="135" height="50" rx="8" fill="var(--bg-legend)" class="legend-box"/>
+              <circle cx="30" cy="330" r="5" fill="var(--color-island)"/>
+              <text x="42" y="334" class="legend-text">원산도 (숙소/농원)</text>
+              <circle cx="30" cy="350" r="5" fill="var(--color-island-godaedo)"/>
+              <text x="42" y="354" class="legend-text">고대도 (성지순례)</text>
+            </svg>
+          </div>
+        </section>
+
+        <!-- Itinerary Timeline Card -->
+        <section class="dashboard-card timeline-card">
+          <div class="card-header">
+            <h2>📅 성지탐방 상세 일정표</h2>
+            <div class="day-tabs">
+              <button class="tab-btn active" data-day="day1">Day 1 (6/5 금)</button>
+              <button class="tab-btn" data-day="day2">Day 2 (6/6 토)</button>
+            </div>
+          </div>
+
+          <!-- Day 1 Schedule List -->
+          <div class="timeline-container active" id="day1-timeline">
+            
+            <div class="timeline-item" id="item-church-departure">
+              <div class="time-badge">17:00</div>
+              <div class="timeline-content">
+                <h3>교회 출발 🚌</h3>
+                <p class="timeline-desc">한샘교회에 모여 출발 기도를 드린 후 원산도로 출발합니다.</p>
+                <div class="timeline-meta">📍 집결지: 한샘교회 앞마당</div>
+              </div>
+            </div>
+
+            <div class="timeline-item" id="item-pension">
+              <div class="time-badge">20:00</div>
+              <div class="timeline-content expandable">
+                <div class="expand-header">
+                  <h3>원산도 숙소 도착 🏠</h3>
+                  <span class="chevron-icon">▼</span>
+                </div>
+                <div class="expand-body">
+                  <p class="timeline-desc">원산도 '햇빛바다관광펜션'에 체크인 및 짐 정리.</p>
+                  <div class="detail-box">
+                    <strong>🏡 햇빛바다관광펜션 시설 정보</strong>
+                    <ul>
+                      <li>주소: 충남 보령시 오천면 원산도7길 103</li>
+                      <li>특징: 객실 앞이 넓은 백사장과 바다로 연결되어 휴양에 아주 좋습니다.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item" id="item-arrival-worship">
+              <div class="time-badge">20:30</div>
+              <div class="timeline-content">
+                <h3>도착 감사예배 🙏</h3>
+                <p class="timeline-desc">여행 중 안전과 은혜를 바라며 함께 드리는 첫 예배 시간입니다.</p>
+                <div class="timeline-meta">📍 예배 장소: 숙소 세미나실 또는 대표 객실</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Day 2 Schedule List -->
+          <div class="timeline-container" id="day2-timeline">
+            
+            <div class="timeline-item" id="item-breakfast">
+              <div class="time-badge">07:00</div>
+              <div class="timeline-content">
+                <h3>아침 식사 🍲</h3>
+                <p class="timeline-desc">속이 편안한 따뜻한 누룽지밥으로 든든하게 아침 식사!</p>
+                <div class="timeline-meta">메뉴: 누룽지밥, 든든한 가정식 밑반찬</div>
+              </div>
+            </div>
+
+            <div class="timeline-item" id="item-devotion">
+              <div class="time-badge">09:00</div>
+              <div class="timeline-content">
+                <h3>아침 경건회 📖</h3>
+                <p class="timeline-desc">고대도 성지 탐방을 떠나기 전 말씀 묵상과 기도의 시간을 가집니다.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item" id="item-chojeon">
+              <div class="time-badge">09:30</div>
+              <div class="timeline-content">
+                <h3>원산도 초전항 출항 🛳️</h3>
+                <p class="timeline-desc">초전항 여객선 선착장으로 이동하여 고대도행 선박 탑승 및 출항합니다.</p>
+                <div class="alert-box">
+                  <strong>💡 승선 신고 알림</strong>
+                  <p>선박 탑승을 위해 <strong>신분증</strong>을 미리 소지해 주세요.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item" id="item-church">
+              <div class="time-badge">09:45</div>
+              <div class="timeline-content expandable">
+                <div class="expand-header">
+                  <h3>고대도 입항 & 성지순례 ⛪</h3>
+                  <span class="chevron-icon">▼</span>
+                </div>
+                <div class="expand-body">
+                  <p class="timeline-desc">한국 기독교 최초의 선교적 흔적을 탐방합니다.</p>
+                  
+                  <div class="detail-box">
+                    <strong>🔍 고대도 성지 주요 방문지</strong>
+                    <ol>
+                      <li>
+                        <strong>고대도 동일교회</strong>
+                        <p>선교적 사명을 잇는 고대도의 중심 교회입니다. <a href="https://godaedo.net" target="_blank" class="inline-link">공식 사이트 🔗</a></p>
+                      </li>
+                      <li><strong>동일교회 고대도 선교센터</strong></li>
+                      <li><strong>칼 귀츨라프 해양 문화역사 전시관</strong></li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item" id="item-park">
+              <div class="time-badge">10:45</div>
+              <div class="timeline-content expandable">
+                <div class="expand-header">
+                  <h3>칼 귀츨라프 기념공원 🌳</h3>
+                  <span class="chevron-icon">▼</span>
+                </div>
+                <div class="expand-body">
+                  <p class="timeline-desc">1832년 조선 땅에 첫발을 디딘 독일 선교사 칼 귀츨라프 동상과 기념비, 당머머 해안길 산책.</p>
+                  <div class="detail-box history-box">
+                    <strong>📖 역사 상식: 선교사 칼 귀츨라프</strong>
+                    <p>조선 최초의 개신교 선교사로, 고대도에 한 달간 머물며 주민들에게 감자 재배법을 전수하고 성경(주기도문)을 한글로 번역하여 보급한 역사적 은인입니다.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="time-badge">12:00</div>
+              <div class="timeline-content">
+                <h3>고대도 출항 🛳️</h3>
+                <p class="timeline-desc">고대도를 출발하여 다시 원산도로 귀항합니다.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="time-badge">12:30</div>
+              <div class="timeline-content">
+                <h3>원산도 점심식사 🍽️</h3>
+                <p class="timeline-desc">성지 탐방 후 원산도에서 맛있는 점심 식사를 즐깁니다.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item" id="item-farm">
+              <div class="time-badge">13:30</div>
+              <div class="timeline-content">
+                <h3>이용연 장로댁 농원 심방 🍎</h3>
+                <p class="timeline-desc">원산도에 계신 이용연 장로님의 귀한 농원을 방문해 친교와 심방 예배를 나눕니다.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="time-badge">14:30</div>
+              <div class="timeline-content">
+                <h3>원산도 출발 & 귀가 🏠</h3>
+                <p class="timeline-desc">풍성한 은혜를 안고 각 가정과 교회를 향해 안전하게 귀가합니다.</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Right Column: Participants, Preparation & Budget -->
+      <div class="content-right">
+        
+        <!-- Interactive Participants Checklist Card -->
+        <section class="dashboard-card people-card">
+          <div class="card-header">
+            <h2>👥 탐방 참석자 및 승선 명단</h2>
+            <p>이름을 터치하면 승선/탑승 여부 체크(✅)가 가능합니다.</p>
+          </div>
+          
+          <div class="progress-container">
+            <div class="progress-bar-label">
+              <span>총 참석자 체크 인원</span>
+              <span id="people-stats">0 / 11 명</span>
+            </div>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" id="people-progress-bar" style="width: 0%;"></div>
+            </div>
+          </div>
+
+          <div class="participants-section">
+            <h3 class="gender-title title-male">형제님 (5명)</h3>
+            <div class="chips-container" id="male-container">
+              <!-- JS will load: 오덕환 박양호 정동근 이현규 정병수 -->
+            </div>
+          </div>
+
+          <div class="participants-section">
+            <h3 class="gender-title title-female">자매님 (6명)</h3>
+            <div class="chips-container" id="female-container">
+              <!-- JS will load: 김은주 조영자 정영옥 홍정순 장옥자 최운자 -->
+            </div>
+          </div>
+        </section>
+
+        <!-- Preparation Checklist Card -->
+        <section class="dashboard-card prep-card">
+          <div class="card-header">
+            <h2>🎒 성지순례 필수 준비물</h2>
+            <p>개인 준비 상황을 체크해 가며 꼼꼼하게 짐을 꾸려 보세요.</p>
+          </div>
+          
+          <div class="todo-input-group">
+            <input type="text" id="new-todo-input" placeholder="추가할 준비물을 입력하세요...">
+            <button id="add-todo-btn" class="primary-btn">추가</button>
+          </div>
+
+          <ul class="todo-list" id="todo-list-ul">
+            <!-- Default items will load dynamically here -->
+          </ul>
+        </section>
+
+        <!-- Simple Travel Budget Card -->
+        <section class="dashboard-card budget-card">
+          <div class="card-header">
+            <h2>💰 성지탐방 예상 예산 산출기</h2>
+            <p>인원수 및 예상 단가를 입력하면 실시간 총예산이 산출됩니다.</p>
+          </div>
+
+          <div class="budget-form">
+            <div class="input-field">
+              <label for="num-people">총 참석 인원 (명)</label>
+              <input type="number" id="num-people" value="11" min="1">
+            </div>
+            <div class="input-field">
+              <label for="pension-cost">숙박비 총액 (원)</label>
+              <input type="number" id="pension-cost" value="350000" step="10000">
+            </div>
+            <div class="input-field">
+              <label for="ferry-cost">왕복 여객선 요금 (1인당/원)</label>
+              <input type="number" id="ferry-cost" value="16000" step="1000">
+            </div>
+            <div class="input-field">
+              <label for="meal-cost">식비 및 간식비 (1인당/원)</label>
+              <input type="number" id="meal-cost" value="30000" step="1000">
+            </div>
+            <div class="input-field">
+              <label for="misc-cost">기타 공동 경비 (원)</label>
+              <input type="number" id="misc-cost" value="100000" step="10000">
+            </div>
+          </div>
+
+          <div class="budget-summary-box">
+            <div class="summary-row">
+              <span>여객선 합계:</span>
+              <span id="total-ferry">176,000원</span>
+            </div>
+            <div class="summary-row">
+              <span>식비 합계:</span>
+              <span id="total-meal">330,000원</span>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-row total-row">
+              <span>예상 총 비용:</span>
+              <span id="grand-total" class="text-teal">956,000원</span>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <p>© 2026 한샘교회 기독교성지순례위원회. All Rights Reserved.</p>
+      <p class="footer-hint">본 플래너의 설정 상태는 브라우저 저장소(localStorage)에 안전하게 저장됩니다.</p>
+    </footer>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
