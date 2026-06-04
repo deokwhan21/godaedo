@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=2.0.1">
+  <link rel="stylesheet" href="styles.css?v=2.0.2">
 </head>
 <body>
 
@@ -134,9 +134,14 @@
             </div>
             <div class="map-tabs">
               <button class="map-tab-btn tab-blue active" data-map-tab="interactive">실시간 경로도</button>
+              <button class="map-tab-btn tab-purple" data-map-tab="geographic">실제 경로지도</button>
               <button class="map-tab-btn tab-green" data-map-tab="island">고대도 전체도</button>
               <button class="map-tab-btn tab-orange" data-map-tab="village">마을 상세도</button>
             </div>
+          </div>
+          
+          <div class="map-image-container" id="map-geographic-view" style="display: none; border-radius: 12px; overflow: hidden; background: var(--bg-app); border: var(--border-card); margin-bottom: 12px;">
+            <img src="map_route.png" style="width: 100%; display: block; height: auto;" alt="원산도 - 고대도 실제 경로지도">
           </div>
           
           <div class="map-image-container" id="map-island-view" style="display: none; border-radius: 12px; overflow: hidden; background: var(--bg-app); border: var(--border-card); margin-bottom: 12px;">
@@ -162,56 +167,56 @@
               <!-- Water Background -->
               <rect width="100%" height="100%" fill="url(#ocean-grad)" rx="16"/>
               
-              <!-- Wonsando Island Shape (Flipped to Right) -->
-              <path class="island-path" d="M 550 180 Q 520 140 470 160 T 380 180 T 280 220 T 320 320 T 450 280 T 520 260 Z" fill="var(--color-island)" stroke="var(--color-island-border)" stroke-width="2" filter="url(#shadow)"/>
+              <!-- Wonsando Island Shape (Geographically Accurate) -->
+              <path class="island-path" d="M 180 220 Q 230 170 300 170 T 400 180 T 520 220 T 570 290 T 560 310 T 480 300 T 360 280 T 260 300 T 170 260 Z" fill="var(--color-island)" stroke="var(--color-island-border)" stroke-width="2" filter="url(#shadow)"/>
               
-              <!-- Godaedo Island Shape (Flipped to Left) -->
-              <path class="island-path" d="M 220 70 Q 180 40 130 60 T 80 100 T 120 160 T 200 130 T 240 90 Z" fill="var(--color-island-godaedo)" stroke="var(--color-island-border)" stroke-width="2" filter="url(#shadow)"/>
+              <!-- Godaedo Island Shape (Geographically Accurate) -->
+              <path class="island-path" d="M 50 40 Q 80 40 85 100 T 65 190 T 55 270 T 35 200 T 40 100 Z" fill="var(--color-island-godaedo)" stroke="var(--color-island-border)" stroke-width="2" filter="url(#shadow)"/>
 
-              <!-- Ferry Sea Route (Chojeon Port -> Godaedo - Flipped) -->
-              <path class="ship-route" d="M 320 220 Q 260 180 220 125" fill="none" stroke="var(--color-accent-route)" stroke-width="3" stroke-dasharray="6,6"/>
+              <!-- Ferry Sea Route (Chojeon Port -> Godaedo - Geographically Curved) -->
+              <path class="ship-route" d="M 230 180 Q 150 120 75 75" fill="none" stroke="var(--color-accent-route)" stroke-width="3" stroke-dasharray="6,6"/>
               
-              <!-- Ferry Icon along path (Flipped) -->
-              <g transform="translate(275, 175) rotate(-145)">
+              <!-- Ferry Icon along path -->
+              <g transform="translate(145, 122) rotate(-145)">
                 <path d="M-6,-3 L6,-3 L8,0 L6,3 L-6,3 Z" fill="var(--color-accent-route)"/>
                 <circle cx="-1" cy="0" r="1.5" fill="white"/>
                 <path d="M-2,-2 L-2,-5 L1,-5 L1,-2" stroke="var(--color-accent-route)" stroke-width="1" fill="none"/>
               </g>
 
-              <!-- Connection Dots & Labels (Flipped) -->
+              <!-- Connection Dots & Labels (Geographically Positioned) -->
               <!-- 1. 원산도 숙소 (햇빛바다관광펜션) -->
               <g class="map-pin" id="pin-pension" data-target="item-pension">
-                <circle cx="480" cy="220" r="14" class="pin-pulse"/>
-                <circle cx="480" cy="220" r="7" class="pin-core"/>
-                <text x="480" y="245" class="pin-label">🏠 햇빛바다펜션</text>
+                <circle cx="260" cy="290" r="14" class="pin-pulse"/>
+                <circle cx="260" cy="290" r="7" class="pin-core"/>
+                <text x="260" y="315" class="pin-label">🏠 햇빛바다펜션</text>
               </g>
 
               <!-- 2. 원산도 초전항 -->
               <g class="map-pin" id="pin-chojeon" data-target="item-chojeon">
-                <circle cx="320" cy="220" r="14" class="pin-pulse"/>
-                <circle cx="320" cy="220" r="7" class="pin-core"/>
-                <text x="320" y="245" class="pin-label">⚓ 초전항 (출항)</text>
+                <circle cx="230" cy="180" r="14" class="pin-pulse"/>
+                <circle cx="230" cy="180" r="7" class="pin-core"/>
+                <text x="230" y="205" class="pin-label">⚓ 초전항 (출항)</text>
               </g>
 
               <!-- 3. 고대도 동일교회 & 선교센터 -->
               <g class="map-pin" id="pin-church" data-target="item-church">
-                <circle cx="150" cy="95" r="14" class="pin-pulse"/>
-                <circle cx="150" cy="95" r="7" class="pin-core"/>
-                <text x="150" y="75" class="pin-label">⛪ 동일교회 & 선교센터</text>
+                <circle cx="75" cy="85" r="14" class="pin-pulse"/>
+                <circle cx="75" cy="85" r="7" class="pin-core"/>
+                <text x="120" y="70" class="pin-label">⛪ 동일교회 & 선교센터</text>
               </g>
 
               <!-- 4. 칼 귀츨라프 기념공원 -->
               <g class="map-pin" id="pin-park" data-target="item-park">
-                <circle cx="200" cy="115" r="14" class="pin-pulse"/>
-                <circle cx="200" cy="115" r="7" class="pin-core"/>
-                <text x="240" y="140" class="pin-label">🌳 귀츨라프 기념공원</text>
+                <circle cx="55" cy="150" r="14" class="pin-pulse"/>
+                <circle cx="55" cy="150" r="7" class="pin-core"/>
+                <text x="55" y="175" class="pin-label">🌳 귀츨라프 기념공원</text>
               </g>
 
               <!-- 5. 이용연 장로댁 농원 -->
               <g class="map-pin" id="pin-farm" data-target="item-farm">
-                <circle cx="400" cy="250" r="14" class="pin-pulse"/>
-                <circle cx="400" cy="250" r="7" class="pin-core"/>
-                <text x="400" y="275" class="pin-label">🍎 이용연 장로 농원</text>
+                <circle cx="450" cy="240" r="14" class="pin-pulse"/>
+                <circle cx="450" cy="240" r="7" class="pin-core"/>
+                <text x="450" y="265" class="pin-label">🍎 이용연 장로 농원</text>
               </g>
 
               <!-- Map Legend -->
@@ -452,6 +457,6 @@
     <div id="lightbox-caption"></div>
   </div>
 
-  <script src="app.js?v=2.0.5"></script>
+  <script src="app.js?v=2.0.7"></script>
 </body>
 </html>

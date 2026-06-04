@@ -346,6 +346,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Map Tabs Toggling ---
   const mapTabBtns = document.querySelectorAll('.map-tab-btn');
   const interactiveMapContainer = document.querySelector('.map-container');
+  const mapGeographicView = document.getElementById('map-geographic-view');
   const mapIslandView = document.getElementById('map-island-view');
   const mapVillageView = document.getElementById('map-village-view');
 
@@ -357,14 +358,22 @@ document.addEventListener('DOMContentLoaded', () => {
       const tab = btn.getAttribute('data-map-tab');
       if (tab === 'interactive') {
         interactiveMapContainer.style.display = 'block';
+        mapGeographicView.style.display = 'none';
+        mapIslandView.style.display = 'none';
+        mapVillageView.style.display = 'none';
+      } else if (tab === 'geographic') {
+        interactiveMapContainer.style.display = 'none';
+        mapGeographicView.style.display = 'block';
         mapIslandView.style.display = 'none';
         mapVillageView.style.display = 'none';
       } else if (tab === 'island') {
         interactiveMapContainer.style.display = 'none';
+        mapGeographicView.style.display = 'none';
         mapIslandView.style.display = 'block';
         mapVillageView.style.display = 'none';
       } else if (tab === 'village') {
         interactiveMapContainer.style.display = 'none';
+        mapGeographicView.style.display = 'none';
         mapIslandView.style.display = 'none';
         mapVillageView.style.display = 'block';
       }

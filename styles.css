@@ -1230,3 +1230,26 @@ body {
   border-color: #fb923c;
   color: #f8fafc;
 }
+
+.map-tab-btn.tab-purple {
+  background-color: rgba(233, 213, 255, 0.4); /* Pastel Purple */
+  border-color: rgba(168, 85, 247, 0.25);
+  color: #7e22ce;
+}
+.map-tab-btn.tab-purple:hover, .map-tab-btn.tab-purple.active {
+  background-color: #e9d5ff;
+  border-color: #a855f7;
+  color: #581c87;
+  box-shadow: 0 2px 8px rgba(168, 85, 247, 0.25);
+}
+
+[data-theme="dark"] .map-tab-btn.tab-purple {
+  background-color: rgba(168, 85, 247, 0.12);
+  border-color: rgba(168, 85, 247, 0.3);
+  color: #c084fc;
+}
+[data-theme="dark"] .map-tab-btn.tab-purple:hover, [data-theme="dark"] .map-tab-btn.tab-purple.active {
+  background-color: rgba(168, 85, 247, 0.25);
+  border-color: #c084fc;
+  color: #f8fafc;
+}
