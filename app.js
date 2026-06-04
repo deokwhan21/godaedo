@@ -6,16 +6,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const TARGET_DATE = new Date('2026-06-05T17:00:00').getTime();
   
   const PARTICIPANTS = {
-    male: ['오덕환', '박양호', '정동근', '이현규', '정병수'],
-    female: ['김은주', '조영자', '정영옥', '홍정순', '장옥자', '최운자']
+    male: ['오덕환', '정병수', '이용연', '정동근', '박양호', '이현규'],
+    female: ['홍정순', '김은주', '최운자', '장옥자', '전제순', '정영옥', '조영자']
   };
 
   const DEFAULT_TODOS = [
+    { text: '🚨 [필수] 개인 세면도구 (치약, 칫솔 등) 및 수건 지참 🧼🪥🧴', checked: false },
     { text: '성경책 및 찬송가 📖', checked: false },
     { text: '필기도구 ✏️', checked: false },
     { text: '편안한 운동화/신발 👟', checked: false },
     { text: '주민등록증/신분증 (배 승선 필수! 🪪)', checked: false },
-    { text: '⚠️ 개인 세면도구(치약, 칫솔 등) 및 수건 필수 지참! 🧴🧼', checked: false },
     { text: '상비약 및 개인 복용 약 💊', checked: false },
     { text: '스마트폰 충전기 & 보조배터리 🔋', checked: false },
     { text: '가벼운 겉옷/바람막이 (바닷바람 대비 🧥)', checked: false }
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let state = {
     theme: localStorage.getItem('theme') || 'light',
     checkedParticipants: JSON.parse(localStorage.getItem('checkedParticipants')) || [],
-    todos: JSON.parse(localStorage.getItem('todos_v2')) || DEFAULT_TODOS
+    todos: JSON.parse(localStorage.getItem('todos_v3')) || DEFAULT_TODOS
   };
 
   // --- Theme Toggle Setup ---
@@ -256,7 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function saveTodos() {
-    localStorage.setItem('todos_v2', JSON.stringify(state.todos));
+    localStorage.setItem('todos_v3', JSON.stringify(state.todos));
   }
 
   addTodoBtn.addEventListener('click', () => {
