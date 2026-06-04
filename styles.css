@@ -1159,3 +1159,74 @@ body {
   font-size: 0.95rem;
   font-weight: 600;
 }
+
+/* Custom Pastel Colors for Map Tab buttons */
+.map-tab-btn.tab-blue {
+  background-color: rgba(186, 230, 253, 0.4); /* Pastel Sky Blue */
+  border-color: rgba(14, 165, 233, 0.25);
+  color: #0369a1;
+}
+.map-tab-btn.tab-blue:hover, .map-tab-btn.tab-blue.active {
+  background-color: #bae6fd;
+  border-color: #0284c7;
+  color: #0c4a6e;
+  box-shadow: 0 2px 8px rgba(14, 165, 233, 0.25);
+}
+
+.map-tab-btn.tab-green {
+  background-color: rgba(187, 247, 208, 0.4); /* Pastel Mint Green */
+  border-color: rgba(34, 197, 94, 0.25);
+  color: #15803d;
+}
+.map-tab-btn.tab-green:hover, .map-tab-btn.tab-green.active {
+  background-color: #bbf7d0;
+  border-color: #16a34a;
+  color: #064e3b;
+  box-shadow: 0 2px 8px rgba(34, 197, 94, 0.25);
+}
+
+.map-tab-btn.tab-orange {
+  background-color: rgba(254, 215, 170, 0.4); /* Pastel Peach Orange */
+  border-color: rgba(249, 115, 22, 0.25);
+  color: #c2410c;
+}
+.map-tab-btn.tab-orange:hover, .map-tab-btn.tab-orange.active {
+  background-color: #fed7aa;
+  border-color: #ea580c;
+  color: #7c2d12;
+  box-shadow: 0 2px 8px rgba(249, 115, 22, 0.25);
+}
+
+/* Dark mode adjustments for pastel tabs */
+[data-theme="dark"] .map-tab-btn.tab-blue {
+  background-color: rgba(14, 165, 233, 0.12);
+  border-color: rgba(14, 165, 233, 0.3);
+  color: #38bdf8;
+}
+[data-theme="dark"] .map-tab-btn.tab-blue:hover, [data-theme="dark"] .map-tab-btn.tab-blue.active {
+  background-color: rgba(14, 165, 233, 0.25);
+  border-color: #38bdf8;
+  color: #f8fafc;
+}
+
+[data-theme="dark"] .map-tab-btn.tab-green {
+  background-color: rgba(34, 197, 94, 0.1);
+  border-color: rgba(34, 197, 94, 0.3);
+  color: #4ade80;
+}
+[data-theme="dark"] .map-tab-btn.tab-green:hover, [data-theme="dark"] .map-tab-btn.tab-green.active {
+  background-color: rgba(34, 197, 94, 0.2);
+  border-color: #4ade80;
+  color: #f8fafc;
+}
+
+[data-theme="dark"] .map-tab-btn.tab-orange {
+  background-color: rgba(249, 115, 22, 0.1);
+  border-color: rgba(249, 115, 22, 0.3);
+  color: #fb923c;
+}
+[data-theme="dark"] .map-tab-btn.tab-orange:hover, [data-theme="dark"] .map-tab-btn.tab-orange.active {
+  background-color: rgba(249, 115, 22, 0.2);
+  border-color: #fb923c;
+  color: #f8fafc;
+}
