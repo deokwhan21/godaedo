@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   const PARTICIPANTS = {
     male: ['오덕환', '정병수', '이용연', '정동근', '박양호', '이현규'],
-    female: ['홍정순', '김은주', '장옥자', '전제순', '정영옥', '조영자']
+    female: ['홍정순', '김은주', '최운자', '장옥자', '전제순', '정영옥', '조영자']
   };
 
   const DEFAULT_TODOS = [
